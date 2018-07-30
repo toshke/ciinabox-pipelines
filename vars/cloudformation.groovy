@@ -190,6 +190,7 @@ def update(cf, config) {
       cf.updateStack(request)
       return true
     } catch(AmazonCloudFormationException ex) {
+      println "Erorr updating stack: ${ex.toString()}"
       if(!ex.message.contains("No updates are to be performed")) {
         throw ex
       }
